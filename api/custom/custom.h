@@ -16,7 +16,7 @@ vector<string> getMethods();
 namespace controllers {
 
 json getMethods(const json &input);
-// json add(const json &input); // Sample custom method
+json add(const json &input); // Sample custom method
 
 } // namespace controllers
 

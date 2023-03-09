@@ -54,43 +54,43 @@ json getMethods(const json &input) {
 
 */
 
-// json add(const json &input) {
-//     json output;
+json add(const json &input) {
+    json output;
 
-//     // Validate
-//     if(!helpers::hasRequiredFields(input, {"arg0", "arg1"})) {
-//         output["error"] = errors::makeMissingArgErrorPayload();
-//         return output;
-//     }
+    // Validate
+    if(!helpers::hasRequiredFields(input, {"arg0", "arg1"})) {
+        output["error"] = errors::makeMissingArgErrorPayload();
+        return output;
+    }
 
-//     // Extract input parameters
-//     int a, b, sum = 0;
-//     a = input["arg0"].get<int>();
-//     b = input["arg1"].get<int>();
+    // Extract input parameters
+    int a, b, sum = 0;
+    a = input["arg0"].get<int>();
+    b = input["arg1"].get<int>();
 
-//     // Process
-//     sum = a + b;
+    // Process
+    sum = a + b;
 
-//     // Handle options
-//     if(helpers::hasField(input, "addExtraFive")) {
-//         if(input["addExtraFive"].get<bool>()) {
-//             sum += 5;
-//         }
-//     }
-//     if(helpers::hasField(input, "addExtraTen")) {
-//         if(input["addExtraTen"].get<bool>()) {
-//             sum += 10;
-//         }
-//     }
+    // Handle options
+    if(helpers::hasField(input, "addExtraFive")) {
+        if(input["addExtraFive"].get<bool>()) {
+            sum += 5;
+        }
+    }
+    if(helpers::hasField(input, "addExtraTen")) {
+        if(input["addExtraTen"].get<bool>()) {
+            sum += 10;
+        }
+    }
 
-//     // Return the result
-//     output["returnValue"] = sum;
+    // Return the result
+    output["returnValue"] = sum;
 
-//     // Mark the method call as a successful one
-//     output["success"] = true;
+    // Mark the method call as a successful one
+    output["success"] = true;
 
-//     return output;
-// }
+    return output;
+}
 
 } // namespace controllers
 } // namespace custom
