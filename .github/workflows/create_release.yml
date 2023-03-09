@@ -49,13 +49,13 @@ jobs:
         branch: v${{github.event.inputs.version}}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Create a GitHub release
-      uses: ncipollo/release-action@v1
+
+    - name: Upload release artifacts
+      uses: Roang-zero1/github-upload-release-artifacts-action@v2
       with:
-          tag: v${{github.event.inputs.version}}
-          name: Neutralinojs v${{github.event.inputs.version}} released!
-          artifacts: './bin/neutralinojs-v${{github.event.inputs.version}}.zip'
+        args: './bin/neutralinojs-v${{github.event.inputs.version}}.zip'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
     - name: Clean Release Notes
       run: |
